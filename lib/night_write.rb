@@ -1,15 +1,7 @@
 require_relative 'night_writer'
+require 'pry'
 
-# filename = ARGV[0]
-# input = File.open(filename, 'r')
-# contents = input.read
-# input.close
-#
-# output_file = ARGV[1]
-# output = File.open(output_file, 'w')
-# # output = File.open(output_file, 'w')
-# output.write(contents)
-# output.close
-#
-#
-nw = NightWriter.new("hello")
+input = File.read(ARGV[0]).chomp
+contents = NightWriter.new(input)
+output_text = contents.format_braille_output
+File.write(ARGV[1], output_text)
