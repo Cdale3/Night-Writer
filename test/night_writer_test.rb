@@ -1,32 +1,39 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require '../lib/night_writer'
+require './lib/night_writer'
 require 'pry'
 
-class NightWriterTest <Minitest::Test
-  attr_reader :nr
+class NightWriterTest < Minitest::Test
+  attr_reader :night_writer
   def Setup
     # binding.pry
-    @nr = NightWriter.new
+    @night_writer = NightWriter.new
   end
 
   def test_night_writer_exists
-    assert NightWriter, nr
+    assert NightWriter, night_writer
+  end
+
+  def test_input_is_split
+    night_writer = NightWriter.new('crushing')
+    assert_equal ['c','r','u','s','h','i','n','g'], night_writer.split_input
   end
 
   def test_dictionary_is_populated
     # skip
-    nr = NightWriter.new
-    assert_equal [".O", "O.", "O."], nr.translate("s")
+    night_writer = NightWriter.new
+    assert_equal [".O", "O.", "O."], night_writer.translate("s")
   end
 
   def test_english_to_braille
-    nr = NightWriter.new
-    assert_equal [["O.","OO",".."],[".O","O.",".."]] ,nr.english_to_braille("hi")
+    night_writer = NightWriter.new
+    assert_equal [["O.","OO",".."],[".O","O.",".."]] ,night_writer.english_to_braille("hi")
   end
 
   def test_format_braille_output
-    nr = NightWriter.new
-    assert_equal,
+    skip
+    night_writer = NightWriter.new
+    night_writer.english_to_braille("ab")
+    assert_equal ["O.","..",".."],["O.","O.",".."], night_writer.format_braille_output(braille_letter)
   end
 end
