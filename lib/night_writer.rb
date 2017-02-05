@@ -8,12 +8,12 @@ class NightWriter
   end
 
   def split_input
-    input.chars
+    input.each_char
   end
-
-  def count
-    input.length
-  end
+  #
+  # def count
+  #   input.length
+  # end
 
   def english_to_braille
     split_input.map do |letter|
@@ -27,10 +27,11 @@ class NightWriter
       line1 << item[0]
       line2 << item[1]
       line3 << item[2]
+      # binding.pry
     end
-    new_line(line1.join, line2.join, line2.join)
+    new_line(line1.join, line2.join, line3.join)
   end
-  
+
   def new_line(line1, line2, line3)
     final_string = ""
     until line1.length == 0
@@ -57,11 +58,6 @@ end
 
 
 check = NightWriter.new("hello")
-
-check.format_braille_output
-put "character count: #{count}"
-binding.pry
-
-
-
-puts b
+puts check.format_braille_output
+# binding.pry
+# ""
