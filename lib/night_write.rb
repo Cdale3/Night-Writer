@@ -11,7 +11,6 @@ require 'pry'
   # def read
     input = File.read(ARGV[0]).chomp
     contents = NightWriter.new(input)
-    binding.pry
     output_text = contents.format_braille_output
     File.write(ARGV[1], output_text)
   # end
