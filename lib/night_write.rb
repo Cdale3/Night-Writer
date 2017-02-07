@@ -1,15 +1,28 @@
-require_relative 'night_writer'
+require_relative './night_writer'
+require 'pry'
+#
+# class Execute
+#   attr_reader :contents
+#
+#   def initialize
+#     @contents = contents
+#   end
 
-# filename = ARGV[0]
-# input = File.open(filename, 'r')
-# contents = input.read
-# input.close
+  # def read
+    input = File.read(ARGV[0]).chomp
+    contents = NightWriter.new(input)
+    binding.pry
+    output_text = contents.format_braille_output
+    File.write(ARGV[1], output_text)
+  # end
+
+  # def write
+    # output_file = ARGV[1]
+    # output = File.open(output_file, 'w')
+    # output.write(contents)
+    # output.close
+#   end
+# end
 #
-# output_file = ARGV[1]
-# output = File.open(output_file, 'w')
-# # output = File.open(output_file, 'w')
-# output.write(contents)
-# output.close
-#
-#
-nw = NightWriter.new("hello")
+# nw = NightWriter.new(contents)
+# check = Execute.new
