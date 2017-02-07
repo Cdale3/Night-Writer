@@ -10,15 +10,9 @@ class NightWriter
   end
 
   def split_input
-<<<<<<< HEAD
    input.each_char
   end
 
-=======
-    input.each_char
-  end
-  #
->>>>>>> 30847545735c562072d496c496bce5b16db56154
   # def count
   #   input.length
   # end
@@ -35,11 +29,6 @@ class NightWriter
       line1 << item[0]
       line2 << item[1]
       line3 << item[2]
-      # binding.pry
-<<<<<<< HEAD
-      # puts "-----"
-=======
->>>>>>> 30847545735c562072d496c496bce5b16db56154
     end
     new_line(line1.join, line2.join, line3.join)
   end
@@ -69,14 +58,3 @@ class NightWriter
   #  check = NightWriter.new("hello")
   #  puts check.format_braille_output
 end
-
-
-<<<<<<< HEAD
-# check.format_braille_output
-# puts "character count: #{count}"
-=======
-check = NightWriter.new("hello")
-puts check.format_braille_output
-# binding.pry
-# ""
->>>>>>> 30847545735c562072d496c496bce5b16db56154
