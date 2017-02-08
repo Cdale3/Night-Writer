@@ -2,15 +2,17 @@ require 'pry'
 
 class NightWriter
   attr_reader :input, :count
-  def initialize(input = nil)
+
+  def initialize(input)
+    binding.pry
     @input = input
     @count = 0
   end
 
   def split_input
-    input.each_char
+   input.each_char
   end
-  #
+
   # def count
   #   input.length
   # end
@@ -27,7 +29,6 @@ class NightWriter
       line1 << item[0]
       line2 << item[1]
       line3 << item[2]
-      # binding.pry
     end
     new_line(line1.join, line2.join, line3.join)
   end
@@ -54,10 +55,6 @@ class NightWriter
    "capital" => ["..", "..", ".0"], "number" => [".0", ".0", "00"], " " => ["..","..",".."]}
       dictionary[key]
    end
+  #  check = NightWriter.new("hello")
+  #  puts check.format_braille_output
 end
-
-
-check = NightWriter.new("hello")
-puts check.format_braille_output
-# binding.pry
-# ""
