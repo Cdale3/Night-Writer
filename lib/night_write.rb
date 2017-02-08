@@ -1,4 +1,4 @@
-require_relative './night_writer'
+require './lib/night_writer'
 require 'pry'
 #
 # class Execute
