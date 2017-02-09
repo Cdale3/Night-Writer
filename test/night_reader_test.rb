@@ -2,7 +2,6 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/night_writer'
 require './lib/night_reader'
-require 'pry'
 
 class NightReaderTest < Minitest::Test
 
@@ -32,6 +31,4 @@ class NightReaderTest < Minitest::Test
     assert_equal "a", nr.translate(["0.", "..", ".."])
     assert_equal ["a"], nr.braille_to_english(keys)
   end
-# .00..0.0...0.0...00.0.0..00000
-
 end
