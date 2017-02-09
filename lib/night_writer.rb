@@ -1,10 +1,9 @@
 require 'pry'
 
 class NightWriter
-  attr_reader :input, :count
+  attr_reader :input
   def initialize(input = nil)
     @input = input
-    @count = 0
   end
 
   def split_input
@@ -17,7 +16,14 @@ class NightWriter
 
   def english_to_braille
     split_input.map do |letter|
+      if letter == letter.upcase
+        letter.downcase
+        translate("capital")
+        translate(letter)
+        # binding.pry
+      else
       translate(letter)
+      end
     end
   end
 
@@ -30,7 +36,7 @@ class NightWriter
     end
     new_line(line1.join, line2.join, line2.join)
   end
-  
+
   def new_line(line1, line2, line3)
     final_string = ""
     until line1.length == 0
@@ -55,13 +61,6 @@ class NightWriter
    end
 end
 
+check = NightWriter.new("A")
 
-check = NightWriter.new("hello")
-
-check.format_braille_output
-put "character count: #{count}"
-binding.pry
-
-
-
-puts b
+puts check.english_to_braille
